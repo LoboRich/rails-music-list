@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  released: false
+  released_at: 2021-11-19 19:50:56
+  cover_art_url: MyString
+  kind: MyString
+  length: 2021-11-19 19:50:56
+
+two:
+  name: MyString
+  released: false
+  released_at: 2021-11-19 19:50:56
+  cover_art_url: MyString
+  kind: MyString
+  length: 2021-11-19 19:50:56

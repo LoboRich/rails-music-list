@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  permalink: MyString
+  bio: MyText
+  formed_at: 2021-11-19 19:40:19
+  verified: false
+  verified_at: 2021-11-19 19:40:19
+  avatar_url: MyString
+  cover_photo_url: MyString
+
+two:
+  name: MyString
+  permalink: MyString
+  bio: MyText
+  formed_at: 2021-11-19 19:40:19
+  verified: false
+  verified_at: 2021-11-19 19:40:19
+  avatar_url: MyString
+  cover_photo_url: MyString
