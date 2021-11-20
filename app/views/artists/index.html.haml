@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %h1 Artists
+    %button= link_to 'New Article', "/artists/new"
+    %br/
+    %br/
+    %table
+      %thead
+        %tr
+          %th name
+          %th permalink
+          %th bio
+          %th formed_at
+          %th verified
+          %th verified_at
+          %th avatar_url
+          %th cover_photo_url
+          %th Action
+      %tbody
+        - @artists.each do |x|
+          %tr
+            %td x.name
+            %td x.permalink
+            %td x.bio
+            %td x.formed_at
+            %td x.verified
+            %td x.verified_at
+            %td x.avatar_url
+            %td x.cover_photo_url
+            %td
+              = link_to 'Show', x
+              = link_to 'Edit', edit_artist_path(x)
+              = link_to 'Delete', x, method: :delete, data: {confirm: "Are you sure"}
