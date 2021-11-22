@@ -1,0 +1,26 @@
+%p Name:
+%p
+  %b= @artist.name
+
+%p Permalink:
+%p
+  %b= @artist.permalink
+
+%p Bio:
+%p
+  %b= @artist.bio
+
+%p Formed At:
+%p
+  %b= @artist.formed_at.strftime("%b %d, %Y")
+
+.radio
+  %input#radio-1{checked: "#{@artist.verified}", name: "radio", type: "radio"}/
+  %label.radio-label{for: "radio-1"} Verified?
+
+%p Verified At:
+%p
+  %b= @artist.verified_at.strftime("%b %d, %Y") rescue nil
+
+%img{:src => "#{@artist.avatar_url}", :title => ""}
+%img{:src => "#{@artist.cover_photo_url}", :title => ""}

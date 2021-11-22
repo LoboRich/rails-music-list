@@ -36,7 +36,7 @@
 
 .bg-white {
     background-color: var(--white);
-    color: white;
+    color: var(--black);
 }
 
 .bg-colored {
@@ -56,6 +56,7 @@
 .navlinks-inline {
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .navlinks-inline li {
@@ -65,6 +66,7 @@
 
 .navlinks-inline li a{
     color: white;
+    text-decoration: none;
 }
 
 table {

@@ -9,21 +9,18 @@
       %th formed_at
       %th verified
       %th verified_at
-      %th avatar_url
-      %th cover_photo_url
       %th Action
   %tbody
     - @artists.each do |x|
       %tr
-        %td x.name
-        %td x.permalink
-        %td x.bio
-        %td x.formed_at
-        %td x.verified
-        %td x.verified_at
-        %td x.avatar_url
-        %td x.cover_photo_url
+        %td= x.name
+        %td= x.permalink
+        %td= x.bio
+        %td= x.formed_at.strftime("%b %d, %Y")
+        %td= x.verified?
+        %td= x.verified_at.strftime("%b %d, %Y") rescue nil
         %td
           = link_to 'Show', x
           = link_to 'Edit', edit_artist_path(x)
           = link_to 'Delete', x, method: :delete, data: {confirm: "Are you sure"}
+
