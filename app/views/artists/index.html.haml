@@ -1,31 +1,29 @@
-.container
-  %h1 Artists
-  %button.btn.btn-primary
-    = link_to 'New Article', new_artist_path, class: 'btn btn-sm btn-primary'
-  %table
-    %thead
+%h1 Artists
+= link_to 'New Artist', new_artist_path, class: 'btn btn-sm bg-colored'
+%table
+  %thead
+    %tr
+      %th name
+      %th permalink
+      %th bio
+      %th formed_at
+      %th verified
+      %th verified_at
+      %th avatar_url
+      %th cover_photo_url
+      %th Action
+  %tbody
+    - @artists.each do |x|
       %tr
-        %th name
-        %th permalink
-        %th bio
-        %th formed_at
-        %th verified
-        %th verified_at
-        %th avatar_url
-        %th cover_photo_url
-        %th Action
-    %tbody
-      - @artists.each do |x|
-        %tr
-          %td x.name
-          %td x.permalink
-          %td x.bio
-          %td x.formed_at
-          %td x.verified
-          %td x.verified_at
-          %td x.avatar_url
-          %td x.cover_photo_url
-          %td
-            = link_to 'Show', x
-            = link_to 'Edit', edit_artist_path(x)
-            = link_to 'Delete', x, method: :delete, data: {confirm: "Are you sure"}
+        %td x.name
+        %td x.permalink
+        %td x.bio
+        %td x.formed_at
+        %td x.verified
+        %td x.verified_at
+        %td x.avatar_url
+        %td x.cover_photo_url
+        %td
+          = link_to 'Show', x
+          = link_to 'Edit', edit_artist_path(x)
+          = link_to 'Delete', x, method: :delete, data: {confirm: "Are you sure"}
