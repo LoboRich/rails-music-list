@@ -47,32 +47,3 @@
 #content-wrapper {
     padding: 1%;
 }
-
-.nav-bar-inline {
-    display: flex;
-    flex-direction: row;
-}
-
-.navlinks-inline {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.navlinks-inline li {
-    list-style: none;
-    color: white;
-}
-
-.navlinks-inline li a{
-    color: white;
-    text-decoration: none;
-}
-
-table {
-    border-collapse: collapse;
-}
-td, th {
-    border: 1px solid black;
-    padding: 1em;
-}
