@@ -1,26 +1,27 @@
 %h1 Artists
 = link_to 'New Artist', new_artist_path, class: 'btn btn-sm bg-colored'
-%table
-  %thead
-    %tr
-      %th name
-      %th permalink
-      %th bio
-      %th formed_at
-      %th verified
-      %th verified_at
-      %th Action
-  %tbody
-    - @artists.each do |x|
+.table-responsive
+  %table.table.table-bordered
+    %thead
       %tr
-        %td= x.name
-        %td= x.permalink
-        %td= x.bio
-        %td= x.formed_at.strftime("%b %d, %Y")
-        %td= x.verified?
-        %td= x.verified_at.strftime("%b %d, %Y") rescue nil
-        %td
-          = link_to 'Show', x
-          = link_to 'Edit', edit_artist_path(x)
-          = link_to 'Delete', x, method: :delete, data: {confirm: "Are you sure"}
+        %th name
+        %th permalink
+        %th bio
+        %th formed_at
+        %th verified
+        %th verified_at
+        %th Action
+    %tbody
+      - @artists.each do |x|
+        %tr
+          %td= x.name
+          %td= x.permalink
+          %td= x.bio
+          %td= x.formed_at.strftime("%b %d, %Y")
+          %td= x.verified?
+          %td= x.verified_at.strftime("%b %d, %Y") rescue nil
+          %td
+            = link_to 'Show', x
+            = link_to 'Edit', edit_artist_path(x)
+            = link_to 'Delete', x, method: :delete, data: {confirm: "Are you sure"}
 
