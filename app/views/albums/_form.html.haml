@@ -1,0 +1,44 @@
+= form_with(model: @album, local: true) do |form|
+  - if @album.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@album.errors.count, "error")
+        prohibited this @album from being saved:
+      %ul
+        - @album.errors.full_messages.each do |message|
+          %li= message
+
+  .row
+    .form-group.col-12.pt-2.mb-0
+      .form-row
+        .col-md-6.pt-3
+          .field
+            = form.label :name, :class => "control-label"
+            = form.text_field :name, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :released, :class => "control-label"
+            = form.radio_button :released, :checked =>"false", class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :released_at, :class => "control-label"
+            = form.date_field :released_at, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :cover_art_url, :class => "control-label"
+            = form.file_field :cover_art_url, class: 'form-control', required:  true
+
+        .col-md-6.pt-3
+          .field
+            = form.label :kind, :class => "control-label"
+            = form.text_field :kind, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :length, :class => "control-label"
+            = form.number_field :length, class: 'form-control', required:  true
+
+    .form-group.col-12.pt-2.mb-0
+      .form-row
+        .col-md-6.pt-3
+          .field
+            = form.submit 'Save Changes', class: 'btn bg-colored'
