@@ -1,11 +1,11 @@
+= render 'layouts/table-lib-files'
 .card
   .card-body
     %h4.card-title Artists
     / %p.card-text Some example text some example text. Jane Doe is an architect and engineer
     = link_to 'New Artist', new_artist_path, class: 'btn bg-colored'
-
     .table-responsive.mt-3
-      %table.table.table-bordered
+      %table.table.table-bordered.table-hover.dt-responsive
         %thead
           %tr
             %th name
@@ -29,3 +29,7 @@
                 = link_to ('<i class="fas fa-pencil-alt"></i>').html_safe, edit_artist_path(x), class: 'btn btn-icon btn-sm btn-info mr-1'
                 = link_to ('<i class="far fa-trash-alt"></i>').html_safe, x, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-icon btn-sm btn-danger mr-1'
 
+:javascript
+  $(document).ready(function() {
+    $('table').DataTable();
+  } );
