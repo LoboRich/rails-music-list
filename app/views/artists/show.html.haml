@@ -1,26 +1,41 @@
-%p Name:
-%p
-  %b= @artist.name
+.card
+  .card-body
+    %h4.card-title Artist
+    = form_with(model: @artist, local: true) do |form|
+      .row
+        .form-group.col-12.pt-2.mb-0
+          .form-row
+            .col-md-6.pt-3
+              .field
+                = form.label :name, :class => "control-label"
+                = form.text_field :name, class: 'form-control', disabled:  true
+            .col-md-6.pt-3
+              .field
+                = form.label :permalink, :class => "control-label"
+                = form.text_field :permalink, class: 'form-control', disabled:  true
+            .col-md-6.pt-3
+              .field
+                = form.label :bio, :class => "control-label"
+                = form.text_area :bio, class: 'form-control', disabled:  true
+            .col-md-6.pt-3
+              .field
+                = form.label :formed_at, :class => "control-label"
+                = form.date_field :formed_at, class: 'form-control', disabled:  true
+            .col-md-6.pt-3
+              .field
+                = form.label :verified, :class => "control-label"
+                = form.text_field :verified, class: 'form-control', disabled:  true, value: @artist.verified?
+                
+            .col-md-6.pt-3
+              .field
+                = form.label :verified_at, :class => "control-label"
+                = form.date_field :verified_at, class: 'form-control', disabled:  true
+            .col-md-6.pt-3
+              .field
+                = form.label :avatar_url, :class => "control-label"
+                %img{:src => "#{@artist.avatar_url}", :title => "", :style => "width: 150px"}
+            .col-md-6.pt-3
+              .field
+                = form.label :cover_photo_url, :class => "control-label"
+                %img{:src => "#{@artist.cover_photo_url}", :title => "", :style => "width: 150px"}
 
-%p Permalink:
-%p
-  %b= @artist.permalink
-
-%p Bio:
-%p
-  %b= @artist.bio
-
-%p Formed At:
-%p
-  %b= @artist.formed_at.strftime("%b %d, %Y")
-
-.radio
-  %input#radio-1{checked: "#{@artist.verified}", name: "radio", type: "radio"}/
-  %label.radio-label{for: "radio-1"} Verified?
-
-%p Verified At:
-%p
-  %b= @artist.verified_at.strftime("%b %d, %Y") rescue nil
-
-%img{:src => "#{@artist.avatar_url}", :title => ""}
-%img{:src => "#{@artist.cover_photo_url}", :title => ""}

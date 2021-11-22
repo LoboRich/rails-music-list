@@ -8,8 +8,10 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{crossorigin: "anonymous", src: "https://kit.fontawesome.com/7425350b30.js"}
   %body
     #app
       = render 'layouts/navbar'
-      #content-wrapper
+      .container-fluid
         = yield
+

@@ -7,34 +7,45 @@
       %ul
         - @artist.errors.full_messages.each do |message|
           %li= message
-  .field
-    = form.label :name
-    = form.text_field :name
-  .field
-    = form.label :permalink
-    = form.text_field :permalink
-  .field
-    = form.label :bio
-    = form.text_area :bio
-  .field
-    = form.label :formed_at
-    = form.date_field :formed_at
 
-  .field
-    = form.label :verified
-    = form.radio_button :verified, :checked =>"false"
+  .row
+    .form-group.col-12.pt-2.mb-0
+      .form-row
+        .col-md-6.pt-3
+          .field
+            = form.label :name, :class => "control-label"
+            = form.text_field :name, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :permalink, :class => "control-label"
+            = form.text_field :permalink, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :bio, :class => "control-label"
+            = form.text_area :bio, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :formed_at, :class => "control-label"
+            = form.date_field :formed_at, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :verified, :class => "control-label"
+            = form.radio_button :verified, :checked =>"false", class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :verified_at, :class => "control-label"
+            = form.date_field :verified_at, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :avatar_url, :class => "control-label"
+            = form.file_field :avatar_url, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :cover_photo_url, :class => "control-label"
+            = form.file_field :cover_photo_url, class: 'form-control', required:  true
 
-  .field
-    = form.label :verified_at
-    = form.date_field :verified_at
-
-  .field
-    = form.label :avatar_url
-    = form.file_field :avatar_url
-
-  .field
-    = form.label :cover_photo_url
-    = form.file_field :cover_photo_url
-
-  .actions
-    = form.submit
+    .form-group.col-12.pt-2.mb-0
+      .form-row
+        .col-md-6.pt-3
+          .field
+            = form.submit 'Save Changes', class: 'btn bg-colored'

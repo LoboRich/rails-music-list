@@ -1,27 +1,31 @@
-%h1 Artists
-= link_to 'New Artist', new_artist_path, class: 'btn btn-sm bg-colored'
-.table-responsive
-  %table.table.table-bordered
-    %thead
-      %tr
-        %th name
-        %th permalink
-        %th bio
-        %th formed_at
-        %th verified
-        %th verified_at
-        %th Action
-    %tbody
-      - @artists.each do |x|
-        %tr
-          %td= x.name
-          %td= x.permalink
-          %td= x.bio
-          %td= x.formed_at.strftime("%b %d, %Y")
-          %td= x.verified?
-          %td= x.verified_at.strftime("%b %d, %Y") rescue nil
-          %td
-            = link_to 'Show', x
-            = link_to 'Edit', edit_artist_path(x)
-            = link_to 'Delete', x, method: :delete, data: {confirm: "Are you sure"}
+.card
+  .card-body
+    %h4.card-title Artists
+    / %p.card-text Some example text some example text. Jane Doe is an architect and engineer
+    = link_to 'New Artist', new_artist_path, class: 'btn bg-colored'
+
+    .table-responsive.mt-3
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th name
+            %th permalink
+            %th bio
+            %th formed_at
+            %th verified
+            %th verified_at
+            %th Action
+        %tbody
+          - @artists.each do |x|
+            %tr
+              %td= x.name
+              %td= x.permalink
+              %td= x.bio
+              %td= x.formed_at.strftime("%b %d, %Y")
+              %td= x.verified?
+              %td= x.verified_at.strftime("%b %d, %Y") rescue nil
+              %td
+                = link_to ('<i class="far fa-eye"></i>').html_safe, x, class: 'btn btn-icon btn-sm btn-success mr-1'
+                = link_to ('<i class="fas fa-pencil-alt"></i>').html_safe, edit_artist_path(x), class: 'btn btn-icon btn-sm btn-info mr-1'
+                = link_to ('<i class="far fa-trash-alt"></i>').html_safe, x, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-icon btn-sm btn-danger mr-1'
 

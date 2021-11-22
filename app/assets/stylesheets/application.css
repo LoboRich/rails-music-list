@@ -44,6 +44,14 @@
     color: white !important;
 }
 
+.bg-add {
+    float: right;
+}
+
 #content-wrapper {
     padding: 1%;
+}
+
+.card {
+    border: none !important;
 }
