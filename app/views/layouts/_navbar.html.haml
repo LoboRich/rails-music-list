@@ -1,8 +1,14 @@
-<!-- %a{href: "javascript:void(0)"} Logo -->
-%ul.navlinks-inline
-  %li.nav-item
-    = link_to 'Artists', artists_path
-  %li.nav-item
-    %a.nav-link{href: "javascript:void(0)"} Link
-  %li.nav-item
-    %a.nav-link{href: "javascript:void(0)"} Link
+%nav.navbar.navbar-expand-sm.bg-colored.navbar-dark
+  .container-fluid
+    %a.navbar-brand{href: "#"} Music App
+    %button.navbar-toggler{"data-bs-target" => "#collapsibleNavbar", "data-bs-toggle" => "collapse", type: "button"}
+      %span.navbar-toggler-icon
+    #collapsibleNavbar.collapse.navbar-collapse
+      %ul.navbar-nav
+        %li.nav-item
+          %a.nav-link{href: "/artists"} Artists
+        %li.nav-item
+          %a.nav-link{href: "/albums"} Albums
+        %li.nav-item
+          %a.nav-link{href: "/tracks"} Tracks
+        
