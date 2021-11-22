@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_11_19_115939) do
     t.datetime "released_at"
     t.string "cover_art_url"
     t.string "kind"
-    t.time "length"
+    t.integer "length"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
