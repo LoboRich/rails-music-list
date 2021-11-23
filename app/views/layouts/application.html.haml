@@ -9,9 +9,26 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %script{crossorigin: "anonymous", src: "https://kit.fontawesome.com/7425350b30.js"}
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"}
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", :rel => "stylesheet"}
   %body
-    #app
+    / #app
+    /   = render 'layouts/navbar'
+    /   .container-fluid
+    /     = yield
+    #wrapper
+      = render 'layouts/sidebar'
       = render 'layouts/navbar'
-      .container-fluid
-        = yield
+      %section#content-wrapper
+        .row
+          .col-lg-12
+            = yield
 
+:javascript
+  var button  = document.querySelector('#sidebar-toggle');
+  var wrapper = document.querySelector('#wrapper');
+
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
+    wrapper.classList.toggle('toggled');
+  });
