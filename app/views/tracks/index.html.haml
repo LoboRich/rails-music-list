@@ -1,0 +1,36 @@
+= render 'layouts/table-lib-files'
+.card
+  .card-body
+    %h4.card-title Tracks
+    = link_to 'New Track', new_track_path, class: 'btn bg-colored'
+    .table-responsive.mt-3
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th Url
+            %th Name
+            %th Credits
+            %th Available
+            %th Action
+        %tbody
+          - @tracks.each do |x|
+            %tr
+              %td= x.url
+              %td= x.name
+              %td= x.credits.reject { |e| e.empty? }.to_sentence
+              %td= x.available
+              %td
+                = link_to ('<i class="far fa-eye"></i>').html_safe, x, class: 'btn btn-icon btn-sm btn-success mr-1'
+                = link_to ('<i class="fas fa-pencil-alt"></i>').html_safe, edit_track_path(x), class: 'btn btn-icon btn-sm btn-info mr-1'
+                = link_to ('<i class="far fa-trash-alt"></i>').html_safe, x, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-icon btn-sm btn-danger mr-1'
+
+:javascript
+  $(document).ready(function() {
+    var dataTable = $('table').DataTable();
+    document.addEventListener("turbolinks:before-cache", function() {
+      if (dataTable !== null) {
+       dataTable.destroy();
+       dataTable = null;
+      }
+    });
+  } );

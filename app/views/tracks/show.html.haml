@@ -1,0 +1,25 @@
+.card
+  .card-body
+    %h4.card-title Artist
+    = form_with(model: @track, local: true) do |form|
+      .row
+        .form-group.col-12.pt-2.mb-0
+          .form-row
+            .col-md-6.pt-3
+              .field
+                = form.label :name, :class => "control-label"
+                = form.text_field :name, class: 'form-control', disabled: true
+            .col-md-6.pt-3
+              .field
+                = form.label :url, :class => "control-label"
+                = form.text_field :url, class: 'form-control', disabled: true
+            .col-md-6.pt-3
+              .field
+                = form.label :available, :class => "control-label"
+                = form.text_field :available, class: 'form-control', disabled: true
+            .col-md-6.pt-3
+              .field
+                = form.label :credits, :class => "control-label"
+                = form.text_area :available, class: 'form-control', disabled: true, value: "#{@track.credits.to_sentence rescue 'No credits available'}"
+                
+            

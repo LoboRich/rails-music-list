@@ -1,0 +1,68 @@
+%script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+= form_with(model: @track, local: true) do |form|
+  - if @track.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@track.errors.count, "error")
+        prohibited this @track from being saved:
+      %ul
+        - @track.errors.full_messages.each do |message|
+          %li= message
+
+  .row
+    .form-group.col-12.pt-2.mb-0
+      .form-row
+        .col-md-6.pt-3
+          .field
+            = form.label :name, :class => "control-label"
+            = form.text_field :name, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :url, :class => "control-label"
+            = form.text_field :url, class: 'form-control', required:  true
+        .col-md-6.pt-3
+          .field
+            = form.label :available, :class => "control-label"
+            = form.radio_button :available, :checked =>"false", class: 'form-control', required:  true
+        .col-md-6.pt-3#newlink
+          - if @track.credits.present?
+            - @track.credits.each do |x|
+              .field
+                = form.label :credits, :class => "control-label"
+                = form.text_field :credits, class: 'form-control', multiple: true, value: x
+                %span.btn-danger.btn.fas.fa-trash{onclick: "this.parentElement.remove()"}
+        .col-md-6.pt-3
+          %p#addnew
+            %a.btn.btn-sm.btn-warning{:href => "javascript:new_link()"} 
+              %i.fas.fa-plus Add credit/s
+                
+        #newlinktpl{:style => "display:none"}
+          .field
+            = form.label :credits, :class => "control-label"
+            = form.text_field :credits, class: 'form-control', multiple: true, value: ""
+
+    .form-group.col-12.pt-2.mb-0
+      .form-row
+        .col-md-6.pt-3
+          .field
+            = form.submit 'Save Changes', class: 'btn bg-colored'
+
+:javascript
+  //////////
+  var ct = 1;
+  function new_link()
+  {
+    ct++;
+    var div1 = document.createElement('div');
+    div1.id = ct;
+    // link to delete extended form elements
+    var delLink = '<span class="btn-danger btn fas fa-trash" onclick="this.parentElement.remove()"><span>';
+
+    var next_id = document.getElementById('newlink').children.length;
+    var parent = document.getElementById('newlinktpl');
+    div1.innerHTML = document.getElementById('newlinktpl').innerHTML + delLink;
+    document.getElementById('newlink').appendChild(div1);
+    
+  }
+
+
