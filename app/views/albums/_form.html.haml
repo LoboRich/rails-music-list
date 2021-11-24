@@ -1,7 +1,7 @@
 = form_with(model: @album, local: true) do |form|
   - if @album.errors.any?
     #error_explanation
-      %h2
+      %p
         = pluralize(@album.errors.count, "error")
         prohibited this @album from being saved:
       %ul

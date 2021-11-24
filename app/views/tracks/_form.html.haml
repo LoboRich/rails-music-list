@@ -2,7 +2,7 @@
 = form_with(model: @track, local: true) do |form|
   - if @track.errors.any?
     #error_explanation
-      %h2
+      %p
         = pluralize(@track.errors.count, "error")
         prohibited this @track from being saved:
       %ul

@@ -1,9 +1,9 @@
 = form_with(model: @artist, local: true) do |form|
   - if @artist.errors.any?
     #error_explanation
-      %h2
+      %p
         = pluralize(@artist.errors.count, "error")
-        prohibited this @artist from being saved:
+        prohibited this artist from being saved:
       %ul
         - @artist.errors.full_messages.each do |message|
           %li= message
