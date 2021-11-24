@@ -20,7 +20,8 @@
               %td= x.name
               %td= x.released
               %td= x.released_at.strftime("%b %d, %Y") rescue nil
-              %td= x.cover_art_url
+              %td
+                = link_to "View photo", x.cover_art_url.to_s, class: 'dropdown-item btn-light', target: '_blank'
               %td= x.kind
               %td= x.length
               %td
