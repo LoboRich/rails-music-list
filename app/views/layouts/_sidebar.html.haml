@@ -4,10 +4,13 @@
   %ul.sidebar-nav
     %li{:class => "#{ 'active' if current_page?(artists_path)}"}
       %a{href: "/artists"}
-        %i.fa.fa-home Artists
+        %i.fa.fa-users 
+        Artists
     %li{:class => "#{ 'active' if current_page?(albums_path)}"}
       %a{href: "/albums"}
-        %i.fa.fa-home Albums
+        %i.fa.fa-book
+        Albums
     %li{:class => "#{ 'active' if current_page?(tracks_path)}"}
       %a{href: "/tracks"}
-        %i.fa.fa-home Tracks
+        %i.fa.fa-music
+        Tracks
