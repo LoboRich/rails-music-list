@@ -3,7 +3,7 @@
     #error_explanation
       %p
         = pluralize(@album.errors.count, "error")
-        prohibited this @album from being saved:
+        prohibited this album from being saved:
       %ul
         - @album.errors.full_messages.each do |message|
           %li= message
