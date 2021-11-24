@@ -2,7 +2,7 @@
 .card
   .card-body
     %h4.card-title Tracks
-    = link_to 'New Track', new_track_path, class: 'btn bg-colored'
+    = link_to 'New Track', new_track_path, class: 'btn badge bg-colored'
     .table-responsive.mt-3
       %table.table.table-bordered
         %thead
@@ -20,9 +20,9 @@
               %td= x.credits.reject { |e| e.empty? }.to_sentence
               %td= x.available
               %td
-                = link_to ('<i class="far fa-eye"></i>').html_safe, x, class: 'btn btn-icon btn-sm btn-success mr-1'
-                = link_to ('<i class="fas fa-pencil-alt"></i>').html_safe, edit_track_path(x), class: 'btn btn-icon btn-sm btn-info mr-1'
-                = link_to ('<i class="far fa-trash-alt"></i>').html_safe, x, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-icon btn-sm btn-danger mr-1'
+                = link_to ('<i class="far fa-eye"></i>').html_safe, x, class: 'badge bg-info'
+                = link_to ('<i class="fas fa-pencil-alt"></i>').html_safe, edit_track_path(x) , class: 'badge bg-warning'
+                = link_to ('<i class="far fa-trash-alt"></i>').html_safe, x, method: :delete, data: {confirm: "Are you sure?"}, class: 'badge bg-danger'
 
 :javascript
   $(document).ready(function() {
