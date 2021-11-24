@@ -13,6 +13,7 @@
               .field
                 = form.label :url, :class => "control-label"
                 = form.text_field :url, class: 'form-control', disabled: true
+                = link_to "Listen on youtube", @track.url.to_s, target: '_blank'
             .col-md-6.pt-3
               .field
                 = form.label :available, :class => "control-label"

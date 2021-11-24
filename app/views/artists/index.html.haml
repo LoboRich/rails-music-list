@@ -19,7 +19,8 @@
           - @artists.each do |x|
             %tr
               %td= x.name
-              %td= x.permalink
+              %td
+                = link_to "View permalink", x.permalink.to_s, class: 'dropdown-item btn-light', target: '_blank'
               %td= x.bio
               %td= x.formed_at.strftime("%b %d, %Y")
               %td= x.verified?

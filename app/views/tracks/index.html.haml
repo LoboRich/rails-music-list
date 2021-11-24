@@ -7,16 +7,17 @@
       %table.table.table-bordered
         %thead
           %tr
-            %th Url
             %th Name
+            %th Url
             %th Credits
             %th Available
             %th Action
         %tbody
           - @tracks.each do |x|
             %tr
-              %td= x.url
               %td= x.name
+              %td
+                = link_to "View url", x.url.to_s, class: 'dropdown-item btn-light', target: '_blank'
               %td= x.credits.reject { |e| e.empty? }.to_sentence
               %td= x.available
               %td
