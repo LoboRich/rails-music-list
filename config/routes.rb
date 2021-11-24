@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       post :credits_list
     end
   end
+  root "artists#index"
 end
