@@ -31,7 +31,8 @@
         .col-md-6.pt-3
           .field
             = form.label :kind, :class => "control-label"
-            = form.text_field :kind, class: 'form-control', required:  true
+            = form.select :kind, options_for_select(['EP', 'LP', 'Single']), {:required => "true"}, class: 'form-control'
+            / = form.text_field :kind, class: 'form-control', required:  true
         .col-md-6.pt-3
           .field
             = form.label :length, :class => "control-label"
