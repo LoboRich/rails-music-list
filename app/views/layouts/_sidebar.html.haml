@@ -1,15 +1,13 @@
 %aside#sidebar-wrapper
-  .app-branding
-    %span.app-logo
-      %img#logo.logo-icon.mr-2{alt: "logo", src: "/assets/logo.png"}/
-      %span#logo-text.logo-text iPLAY
+  .sidebar-brand
+    %h2#logo iPLAY
   %ul.sidebar-nav
-    %li
+    %li{:class => "#{ 'active' if current_page?(artists_path)}"}
       %a{href: "/artists"}
         %i.fa.fa-home Artists
-    %li
+    %li{:class => "#{ 'active' if current_page?(albums_path)}"}
       %a{href: "/albums"}
         %i.fa.fa-home Albums
-    %li
+    %li{:class => "#{ 'active' if current_page?(tracks_path)}"}
       %a{href: "/tracks"}
         %i.fa.fa-home Tracks

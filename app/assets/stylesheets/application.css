@@ -102,16 +102,17 @@ a:focus {
   text-align: center;
   padding: 20px 0;
 }
-#logo-text {
+.sidebar-brand h2 {
   margin: 0;
   font-weight: 600;
   font-size: 24px;
   color: #15a362;
+  text-align: center;
 }
 
 .sidebar-nav {
   position: absolute;
-  top: 100px;
+  top: 70px;
   width: 250px;
   margin: 0;
   padding: 0;
@@ -170,6 +171,7 @@ a:focus {
 
 #content-wrapper {
   width: 100%;
+  height: 100vh;
   position: absolute;
   padding: 15px;
   top: 100px;
